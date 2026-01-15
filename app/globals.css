@@ -22,63 +22,98 @@
     color: var(--fg);
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
-  a { color: inherit; }
-}
+    :root {
+      --bg: #fff7f6; /* very light pink */
+      --fg: #0f1724; /* near-black for text */
+      --muted: #6b7280;
+      --card: #ffffff;
+      --card-ink: #0f1724;
+      --primary: #b91c1c; /* brand red */
+      --primary-600: #991b1b;
+      --glass: rgba(185,28,28,0.06);
+      --shadow: 0 8px 30px rgba(15,23,36,0.08);
+    }
 
-@layer components {
-  .card {
-    background: var(--card);
-    color: var(--card-ink);
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  }
+    @layer base {
+      html, body, #__next { height: 100%; }
 
-  .btn-primary {
-    background: var(--primary);
-    color: #ffffff;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    display: inline-block;
-    box-shadow: 0 4px 10px rgba(185,28,28,0.14);
-  }
+      body {
+        background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+        color: var(--fg);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height: 1.5;
+      }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    padding: 0.45rem 0.9rem;
-    border-radius: 6px;
-  }
+      a { color: inherit; }
+    }
 
-  .muted { color: var(--muted); }
-}
+    @layer components {
+      .card {
+        background: var(--card);
+        color: var(--card-ink);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
 
-@layer utilities {
-  .glass { background: var(--glass); }
-}
+      .card-body { padding: 1.25rem; }
+      .card-title { font-weight: 700; }
 
-.site-bg { background: linear-gradient(180deg,#ffffff 0%, #fde8e8 100%); }
-.container-center { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        display: inline-block;
+        box-shadow: 0 6px 18px rgba(185,28,28,0.12);
+        transition: transform .12s ease, box-shadow .12s ease;
+      }
+      .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(185,28,28,0.16); }
 
-/* Theme helpers */
-.bg-primary { background: var(--primary); }
-.text-primary { color: var(--primary); }
+      .btn-outline {
+        background: transparent;
+        color: var(--primary-600);
+        border: 1px solid rgba(15,23,36,0.06);
+        padding: 0.45rem 0.9rem;
+        border-radius: 8px;
+      }
 
-/* Form styles */
-.input {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  border: 1px solid rgba(17,24,39,0.06);
-  background: transparent;
-  color: inherit;
-}
-.input:focus { outline: none; box-shadow: 0 0 0 3px rgba(185,28,28,0.12); }
+      .muted { color: var(--muted); }
+    }
 
-.card .card-body { padding: 1rem; }
-.card .card-title { font-weight: 600; }
+    @layer utilities {
+      .glass { background: var(--glass); }
+      .text-primary { color: var(--primary); }
+      .bg-primary { background: var(--primary); }
+    }
+
+    /* Layout helpers */
+    .site-bg { background: linear-gradient(180deg,#ffffff 0%, #fff1f0 100%); }
+    .container-center { max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+
+    /* Header */
+    .site-header { background: transparent; border-bottom: 4px solid rgba(185,28,28,0.12); }
+    .site-header .nav { display:flex; gap:1rem; align-items:center; }
+    .site-logo { font-weight:700; color:var(--primary); }
+    .nav-link { color: rgba(15,23,36,0.7); padding: .25rem .5rem; border-radius:6px; }
+    .nav-link:hover { color: var(--primary-600); background: rgba(185,28,28,0.03); }
+
+    /* Forms */
+    .input { width: 100%; padding: 0.6rem 0.85rem; border-radius: 8px; border: 1px solid rgba(15,23,36,0.06); background: #fff; color: inherit; }
+    .input:focus { outline: none; box-shadow: 0 6px 18px rgba(15,23,36,0.06); border-color: var(--primary); }
+
+    /* Footer */
+    .site-footer { color: rgba(15,23,36,0.6); font-size: 0.9rem; padding: 1.25rem 0; }
+
+    .muted-sm { color: #94a3b8; }
+
+    /* Utility tweaks */
+    .rounded-lg { border-radius: 12px; }
 
 
