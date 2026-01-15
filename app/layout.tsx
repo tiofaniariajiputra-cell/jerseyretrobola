@@ -33,7 +33,16 @@ export default function RootLayout({
             <Link href="/" className="text-lg font-semibold">
               JerseyRetroBola
             </Link>
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center">
+              <Link href="/" className="rounded px-3 py-1 hover:bg-gray-100">
+                Beranda
+              </Link>
+              <Link href="/products" className="rounded px-3 py-1 hover:bg-gray-100">
+                Produk
+              </Link>
+              <Link href="/info" className="rounded px-3 py-1 hover:bg-gray-100">
+                More Info
+              </Link>
               <Link href="/login" className="rounded px-3 py-1 hover:bg-gray-100">
                 Login
               </Link>
