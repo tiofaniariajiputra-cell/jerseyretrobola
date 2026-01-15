@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="bg-black/95 text-white glass">
+        <header className="bg-primary text-white glass">
           <nav className="container-center flex items-center justify-between py-4">
             <Link href="/" className="text-lg font-semibold tracking-wide">
               JerseyRetroBola
