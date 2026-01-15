@@ -46,9 +46,6 @@ export default function RootLayout({
               <Link href="/login" className="rounded px-3 py-1 hover:bg-gray-100">
                 Login
               </Link>
-              <Link href="/register" className="rounded border px-3 py-1 hover:bg-gray-50">
-                Register
-              </Link>
             </div>
           </nav>
         </header>
