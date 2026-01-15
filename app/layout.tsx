@@ -28,12 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="bg-black/90 text-white glass px-6 py-4">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between">
+        <header className="bg-black/95 text-white glass">
+          <nav className="container-center flex items-center justify-between py-4">
             <Link href="/" className="text-lg font-semibold tracking-wide">
               JerseyRetroBola
             </Link>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-6 items-center">
               <Link href="/" className="text-sm muted hover:text-white">
                 Beranda
               </Link>
@@ -49,7 +49,8 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="mx-auto max-w-6xl p-6">{children}</main>
+
+        <main className="container-center py-8">{children}</main>
       </body>
     </html>
   );

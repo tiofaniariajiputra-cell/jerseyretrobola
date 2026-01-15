@@ -42,67 +42,69 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-[60vh] items-center justify-center">
-      <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4 rounded border p-6 shadow-sm bg-white">
-        <h2 className="text-2xl font-semibold">Buat Akun Baru</h2>
+    <div className="site-bg min-h-[60vh] py-12">
+      <div className="container-center">
+        <div className="card mx-auto max-w-md">
+          <div className="card-body">
+            <h2 className="text-2xl card-title">Buat Akun Baru</h2>
 
-        {message && <div className="rounded bg-yellow-50 p-2 text-sm">{message}</div>}
+            {message && <div className="rounded bg-yellow-50 p-2 text-sm">{message}</div>}
 
-        <div>
-          <label className="block text-sm font-medium">Username</label>
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="mt-1 w-full rounded border px-3 py-2"
-            placeholder="username"
-            required
-          />
+            <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+              <div>
+                <label className="block text-sm font-medium">Username</label>
+                <input
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="input mt-1"
+                  placeholder="username"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="input mt-1"
+                  placeholder="nama@contoh.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">No. HP</label>
+                <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="input mt-1"
+                  placeholder="08123456789"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">Password Baru</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="input mt-1"
+                  placeholder="Minimal 6 karakter"
+                  required
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <button type="submit" className="btn-primary">Buat Akun</button>
+                <Link href="/login" className="text-sm muted">Sudah punya akun? Login</Link>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div>
-          <label className="block text-sm font-medium">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded border px-3 py-2"
-            placeholder="nama@contoh.com"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium">No. HP</label>
-          <input
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="mt-1 w-full rounded border px-3 py-2"
-            placeholder="08123456789"
-            required
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium">Password Baru</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded border px-3 py-2"
-            placeholder="Minimal 6 karakter"
-            required
-          />
-        </div>
-
-        <div className="flex items-center justify-between">
-          <button type="submit" className="rounded bg-black px-4 py-2 text-white">
-            Buat Akun
-          </button>
-          <Link href="/login" className="text-sm text-blue-600">
-            Sudah punya akun? Login
-          </Link>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
