@@ -1,18 +1,10 @@
-// @ts-nocheck
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,32 +18,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <header className="bg-primary text-white glass">
-          <nav className="container-center flex items-center justify-between py-4">
-            <Link href="/" className="text-lg font-semibold tracking-wide">
-              JerseyRetroBola
-            </Link>
-            <div className="flex gap-6 items-center">
-              <Link href="/" className="text-sm muted hover:text-white">
-                Beranda
-              </Link>
-              <Link href="/products" className="text-sm muted hover:text-white">
-                Produk
-              </Link>
-              <Link href="/info" className="text-sm muted hover:text-white">
-                More Info
-              </Link>
-              <Link href="/login" className="text-sm btn-outline">
-                Login
-              </Link>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}> 
+        <header className="site-header">
+          <div className="container-center flex items-center justify-between py-4">
+            <div className="flex items-center gap-4">
+              <Link href="/" className="site-logo">JerseyRetroBola</Link>
+              <nav className="nav hidden md:flex">
+                <Link href="/" className="nav-link">Beranda</Link>
+                <Link href="/products" className="nav-link">Produk</Link>
+                <Link href="/info" className="nav-link">Info</Link>
+              </nav>
             </div>
-          </nav>
+
+            <div className="flex items-center gap-3">
+              <Link href="/login" className="btn-outline">Login</Link>
+              <Link href="/register" className="btn-primary">Daftar</Link>
+            </div>
+          </div>
         </header>
 
-        <main className="container-center py-8">{children}</main>
+        <main className="container-center py-10">{children}</main>
       </body>
     </html>
   );
