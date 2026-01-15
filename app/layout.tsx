@@ -28,28 +28,28 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="border-b bg-white/60 px-6 py-4 shadow-sm">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between">
-            <Link href="/" className="text-lg font-semibold">
+        <header className="bg-black/90 text-white glass px-6 py-4">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between">
+            <Link href="/" className="text-lg font-semibold tracking-wide">
               JerseyRetroBola
             </Link>
-            <div className="flex gap-3 items-center">
-              <Link href="/" className="rounded px-3 py-1 hover:bg-gray-100">
+            <div className="flex gap-4 items-center">
+              <Link href="/" className="text-sm muted hover:text-white">
                 Beranda
               </Link>
-              <Link href="/products" className="rounded px-3 py-1 hover:bg-gray-100">
+              <Link href="/products" className="text-sm muted hover:text-white">
                 Produk
               </Link>
-              <Link href="/info" className="rounded px-3 py-1 hover:bg-gray-100">
+              <Link href="/info" className="text-sm muted hover:text-white">
                 More Info
               </Link>
-              <Link href="/login" className="rounded px-3 py-1 hover:bg-gray-100">
+              <Link href="/login" className="text-sm btn-outline">
                 Login
               </Link>
             </div>
           </nav>
         </header>
-        <main className="mx-auto max-w-5xl p-6">{children}</main>
+        <main className="mx-auto max-w-6xl p-6">{children}</main>
       </body>
     </html>
   );
